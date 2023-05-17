@@ -40,4 +40,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           screen -XS noten quit
-          screen -dm -S noten-${{ github.run_id }} bash -c "cd ~/noten.theskz.dev && python3 main.py; exec sh"
+          screen -dm -S noten-${{ github.run_id }} bash -c "cd ~/noten.theskz.dev && python3 server.py; exec sh"
