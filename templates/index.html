@@ -39,197 +39,56 @@
     </div>
     <br>
 
-    <h2><a href="#average">Notenschnitt</a></h2>
-    <h2><a href="#missing">Fehlende Note</a></h2>
-    <br>
-    <br>
-
-    <h1 id="average" class="text-info">Notenschnitt berechnen</h1>
-
-    <hr style="color: white">
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Runden auf</h3>
-            <div>
-                <div class="ms-0 me-1">
-                    <div class="form-outline">
-                        <select class="form-select" id="average-round-select">
-                            <option value="0">Ganze Noten</option>
-                            <option value="2">Zehntel Noten</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <style>
+        .grid-container {
+            display: grid;
     
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Vorhandene Noten</h3>
-            <div style="width: 50%; float: left;">
-                <div class="ms-0 me-1">
-                    <h5 class="text-light">Gewichtung %</h5>
-                    <div class="form-outline" id="average-grade-weights">
-                        <input id="average-weight0" type="number" class="form-control mt-1 mb-2" placeholder="%"/>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-left: 50%;">
-                <div class="ms-1 me-0">
-                    <h5 class="text-light">Note</h5>
-                    <div class="form-outline" id="average-grades">
-                        <input id="average-grade0" type="number" class="form-control mt-1 mb-2" placeholder="1-6" min="1" max="6" pattern=".1"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            column-gap: 15px;
+            row-gap: 15px;
+            
+            grid-template-columns: auto auto auto;
+            /*background-color: #2196F3;*/
+            padding: 10px;
+        }
     
+        .grid-item {
+            padding: 0px;
+            font-size: 30px;
+            text-align: center;
+            height: 200px;
     
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <div class="w-100 btn-group mb-1" role="group">
-                <button id="average-new" type="button" class="w-50 btn btn-primary rounded ms-0 me-1">
-                    <i class="bi bi-plus-square-dotted"></i> &nbsp; Neuer Wert
-                </button>
-                <button id="average-delete" type="button" class="w-50 btn btn-danger rounded ms-1 me-0">
-                    <i class="bi bi-trash"></i> &nbsp; Wert löschen
-                </button>
-            </div>
-            <div class="w-100 btn-group mt-1" role="group">
-                <button id="average-calculate" type="button" class="w-50 btn btn-success rounded ms-0 me-1">
-                    <i class="bi bi-arrow-right-square"></i> &nbsp; Rechnen
-                </button>
-                <button id="average-reset" type="button" class="w-50 btn btn-danger rounded ms-1 me-0">
-                    <i class="bi bi-arrow-counterclockwise"></i> &nbsp; Zurücksetzen
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Ergebnis Note</h3>
-            <div>
-                <div class="ms-0 me-1">
-                    <div class="form-outline">
-                        <input id="average-result" type="number" class="form-control" placeholder="..." pattern=".1" readonly/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <h6 class="text-secondary">Keine gewährleistung der korrektheit des Ergebnisses</h3>
-
-
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <h1 id="missing" class="text-info">Fehlende Note berechnen</h1>
-    <hr style="color: white">
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Fehlende Note</h3>
-            <div>
-                <div class="ms-0 me-1">
-                    <h5 class="text-light">Gewichtung %</h5>
-                    <div class="form-outline">
-                        <input id="missing-grade-weight" type="number" class="form-control mt-1 mb-2" placeholder="%"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Gewünschte Note</h3>
-            <div>
-                <div class="ms-1 me-0">
-                    <h5 class="text-light">Note</h5>
-                    <div class="form-outline">
-                        <input id="wanted-grade" type="number" class="form-control mt-1 mb-2" placeholder="1-6" min="1" max="6" pattern=".1"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Vorhandene Noten</h3>
-            <div style="width: 50%; float: left;">
-                <div class="ms-0 me-1">
-                    <h5 class="text-light">Gewichtung %</h5>
-                    <div class="form-outline" id="missing-grade-weights">
-                        <input id="missing-weight0" type="number" class="form-control mt-1 mb-2" placeholder="%"/>
-                    </div>
-                </div>
-            </div>
-            <div style="margin-left: 50%;">
-                <div class="ms-1 me-0">
-                    <h5 class="text-light">Note</h5>
-                    <div class="form-outline" id="missing-grades">
-                        <input id="missing-grade0" type="number" class="form-control mt-1 mb-2" placeholder="1-6" min="1" max="6" pattern=".1"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
     
+        a.grid-btn {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
     
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <div class="w-100 btn-group mb-1" role="group">
-                <button id="missing-new" type="button" class="w-50 btn btn-primary rounded ms-0 me-1">
-                    <i class="bi bi-plus-square-dotted"></i> &nbsp; Neuer Wert
-                </button>
-                <button id="missing-delete" type="button" class="w-50 btn btn-danger rounded ms-1 me-0">
-                    <i class="bi bi-trash"></i> &nbsp; Wert löschen
-                </button>
-            </div>
-            <div class="w-100 btn-group mt-1" role="group">
-                <button id="missing-calculate" type="button" class="w-50 btn btn-success rounded ms-0 me-1">
-                    <i class="bi bi-arrow-right-square"></i> &nbsp; Rechnen
-                </button>
-                <button id="missing-reset" type="button" class="w-50 btn btn-danger rounded ms-1 me-0">
-                    <i class="bi bi-arrow-counterclockwise"></i> &nbsp; Zurücksetzen
-                </button>
-            </div>
+    </style>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="/notenschnitt" class="btn btn-primary grid-btn">
+                Notenschnitt Rechner
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="/fehlende-note" class="btn btn-primary grid-btn">
+                Fehlende Note Berechnen
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="/note-punkte-rechner" class="btn btn-primary grid-btn">
+                Note - Notenpunkte Rechner
+            </a>
         </div>
     </div>
-
-    <div class="row pt-4">
-        <div class="col-md-6">
-            <h3 class="text-warning">Ergebnis benötigte Note</h3>
-            <div>
-                <div class="ms-0 me-1">
-                    <div class="form-outline">
-                        <input id="missing-result" type="number" class="form-control" placeholder="..." pattern=".1" readonly/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <h6 class="text-secondary">Keine gewährleistung der korrektheit des Ergebnisses</h3>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    
 
     <footer class="copyright_div">
         <a href="https://theskz.dev" class="copyright text-dark">© 2023 Philskillz_#0266 - noten.theskz.dev </a>
@@ -237,7 +96,5 @@
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="/static/average.js"></script>
-    <script src="/static/missing.js"></script>
 </body>
 </html>
